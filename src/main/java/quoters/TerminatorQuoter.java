@@ -16,6 +16,7 @@ public class TerminatorQuoter implements Quoter {
     private String message;
 
     public TerminatorQuoter() {
+        System.out.println("repeat at constructor: " + repeat);
         System.out.println("Phase 1");
     }
 

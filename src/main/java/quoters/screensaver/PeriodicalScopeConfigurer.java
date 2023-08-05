@@ -1,8 +1,9 @@
 package quoters.screensaver;
 
-import javafx.util.Pair;
+//import javafx.util.Pair;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
+import util.Pair;
 
 import java.time.LocalTime;
 import java.util.HashMap;

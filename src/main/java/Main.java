@@ -1,5 +1,3 @@
-package quoters.app;
-
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import quoters.Quoter;
 
@@ -8,9 +6,9 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         context.getBean(Quoter.class).sayQuote();
 
-        /*while (true) {
+        while (true) {
             Thread.sleep(1_000);
             context.getBean(Quoter.class).sayQuote();
-        }*/
+        }
     }
 }

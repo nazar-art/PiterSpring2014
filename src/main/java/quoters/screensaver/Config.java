@@ -3,16 +3,18 @@ package quoters.screensaver;
 import org.springframework.context.annotation.*;
 
 import java.awt.*;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @ComponentScan(basePackages = "quoters.screensaver")
 public class Config {
 
+    private final ThreadLocalRandom random = ThreadLocalRandom.current();
+
     @Bean
     @Scope("periodical")
     public Color color() {
-        Random random = new Random();
         return new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
 
@@ -30,7 +32,7 @@ public class Config {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         while (true) {
             context.getBean(ColorFrame.class).showOnRandomPlace();
-            Thread.sleep(400);
+            TimeUnit.MILLISECONDS.sleep(500);
         }
     }
 }

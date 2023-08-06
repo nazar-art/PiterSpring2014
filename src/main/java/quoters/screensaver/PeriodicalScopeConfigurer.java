@@ -1,6 +1,5 @@
 package quoters.screensaver;
 
-//import javafx.util.Pair;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 import util.Pair;
@@ -12,10 +11,11 @@ import java.util.Map;
 import static java.time.LocalTime.*;
 
 public class PeriodicalScopeConfigurer implements Scope {
-    Map<String, Pair<LocalTime, Object>> map = new HashMap<>();
+    private final Map<String, Pair<LocalTime, Object>> map = new HashMap<>();
 
     @Override
     public Object get(String name, ObjectFactory<?> objectFactory) {
+
         if (map.containsKey(name)) {
             Pair<LocalTime, Object> pair = map.get(name);
             int secondSinceLastRequest = now().getSecond() - pair.getKey().getSecond();
@@ -35,7 +35,6 @@ public class PeriodicalScopeConfigurer implements Scope {
 
     @Override
     public void registerDestructionCallback(String name, Runnable callback) {
-
     }
 
     @Override
